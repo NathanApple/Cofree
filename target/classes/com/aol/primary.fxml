@@ -15,7 +15,8 @@
    <children>
       <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to Secondary View" />
 
-      <GridPane alignment="CENTER">
+      <GridPane alignment="CENTER" fx:id="cardGrid">
+      <!-- <GridPane alignment="CENTER" fx:id="cardGrid" onMouseClicked="#clickGrid"> -->
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
