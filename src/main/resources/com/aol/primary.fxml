@@ -15,21 +15,21 @@
    <children>
       <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to Secondary View" />
 
-      <GridPane alignment="CENTER" fx:id="cardGrid">
+      <GridPane fx:id="cardGrid" alignment="CENTER">
       <!-- <GridPane alignment="CENTER" fx:id="cardGrid" onMouseClicked="#clickGrid"> -->
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <!-- <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" /> -->
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="card00" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <!-- <Button fx:id="card00" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="card10" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="card20" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="card01" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
@@ -40,7 +40,7 @@
             <Button fx:id="card22" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="card03" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="card13" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="card23" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="card23" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" /> -->
          </children>
       </GridPane>
       <Label fx:id="label1" text="Label 1" />
