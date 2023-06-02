@@ -5,45 +5,37 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="316.0" prefWidth="361.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aol.PrimaryController">
+<VBox alignment="CENTER" prefHeight="1000.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aol.PrimaryController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to Secondary View" />
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0" spacing="100.0">
+         <children>
+            <Label fx:id="lifeLabel" text="Attempt: 3" />
+            <Label fx:id="scoreLabel" alignment="CENTER" text="Correct Guess: 0" />
+         </children>
+      </HBox>
+      <!-- <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to Secondary View" /> -->
 
-      <GridPane fx:id="cardGrid" alignment="CENTER">
+      <GridPane fx:id="cardGrid" alignment="CENTER" >
       <!-- <GridPane alignment="CENTER" fx:id="cardGrid" onMouseClicked="#clickGrid"> -->
-        <columnConstraints>
-          <!-- <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <!-- <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" /> -->
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <!-- <Button fx:id="card00" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="card10" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="card20" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="card01" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="card11" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="card21" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="card02" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="card12" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="card22" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="card03" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="card13" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="card23" mnemonicParsing="false" onAction="#viewCard" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" /> -->
-         </children>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints> -->
+        <!-- <rowConstraints>
+            <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+        </rowConstraints> -->
       </GridPane>
-      <Label fx:id="label1" text="Label 1" />
-      <Label fx:id="label2" text="Label 2" />
+      <Button mnemonicParsing="false" text="Reset" onAction="#reset" />
    </children>
 </VBox>
