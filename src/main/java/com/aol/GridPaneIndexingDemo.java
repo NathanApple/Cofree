@@ -31,9 +31,10 @@ public class GridPaneIndexingDemo extends Application {
     }
 
     private StackPane getPane(int i) {
-        String[] colors = {"grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange", "lightblue", "grey"};
+        String[] colors = { "grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange", "lightblue",
+                "grey" };
         StackPane pane = new StackPane();
-        pane.setPrefSize(150,150);
+        pane.setPrefSize(150, 150);
         pane.setStyle("-fx-background-color:" + colors[i] + ";-fx-border-width:2px;");
         return pane;
     }

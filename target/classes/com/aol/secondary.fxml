@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aol.SecondaryController">
     <children>
-      <HBox alignment="CENTER" prefHeight="10.0" prefWidth="10.0" spacing="10.0">
+        <Label prefHeight="32.0" prefWidth="74.0" text="Prize: ">
+         <font>
+            <Font name="Javanese Text" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="prizeButton" mnemonicParsing="false" text="Reveal Prize" />
+      <VBox alignment="CENTER" prefHeight="83.0" prefWidth="331.0" style="-fx-border-color: black;">
          <children>
-              <Label text="Prize: " />
-            <Label text="Label" fx:id="prizeLabel">
+            <Label fx:id="prizeLabel" alignment="CENTER" contentDisplay="CENTER" text="TEST">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children>
-      </HBox>
+      </VBox>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

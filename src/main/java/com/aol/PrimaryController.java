@@ -51,7 +51,6 @@ public class PrimaryController {
         public int status;
 
         public Pane pane;
-        
 
         public Answer() {
             this.key = -1;
@@ -62,57 +61,57 @@ public class PrimaryController {
             this.key = key;
         }
 
-        public String getImage(){
-            String[] images = {"grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange"};
+        public String getImage() {
+            String[] images = { "grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange" };
             return images[this.key];
         }
 
-        public String getColor(){
-            String[] colors = {"grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange"};
+        public String getColor() {
+            String[] colors = { "grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange" };
             return colors[this.key];
         }
 
-        public boolean allowOpen(){
-            if (this.status == 0 && cardState == 0){
+        public boolean allowOpen() {
+            if (this.status == 0 && cardState == 0) {
                 return true;
             } else {
                 return false;
             }
         }
 
-        public void openCard(int colIndex, int rowIndex){
+        public void openCard(int colIndex, int rowIndex) {
             this.status = 1;
             String color = answer.get(colIndex).get(rowIndex).getColor();
             pane.setStyle(paneStyle(color));
         }
 
-        public void forceOpenCard(int colIndex, int rowIndex){
+        public void forceOpenCard(int colIndex, int rowIndex) {
             this.status = 2;
             String color = answer.get(colIndex).get(rowIndex).getColor();
             System.out.println(color);
             pane.setStyle(paneStyle(color));
         }
 
-        public void forceCloseCard(){
+        public void forceCloseCard() {
             this.status = 0;
             pane.setStyle(paneStyle("lightblue"));
         }
 
-        public boolean isPopulated(){
-            if (this.key == -1){
+        public boolean isPopulated() {
+            if (this.key == -1) {
                 return false;
             } else {
                 return true;
             }
         }
 
-        public void printData(){
-            System.out.println(this.key+ " : " + this.status);
+        public void printData() {
+            System.out.println(this.key + " : " + this.status);
         }
 
-        public boolean closeCard(){
+        public boolean closeCard() {
 
-            if (this.status == 1){
+            if (this.status == 1) {
                 this.status = 0;
                 pane.setStyle(paneStyle("lightblue"));
                 // System.out.println("wrong");
@@ -121,8 +120,8 @@ public class PrimaryController {
             return false;
         }
 
-        public boolean revealCard(){
-            if (this.status == 1){
+        public boolean revealCard() {
+            if (this.status == 1) {
                 this.status = 2;
                 return true;
             }
@@ -130,14 +129,13 @@ public class PrimaryController {
         }
     }
 
-    public void closeCard(){
+    public void closeCard() {
         this.cardState = 1;
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
 
-        
             @Override
             public void handle(ActionEvent event) {
-                for (int i = 0; i < answer.size(); i++){
+                for (int i = 0; i < answer.size(); i++) {
                     for (int j = 0; j < answer.get(i).size(); j++) {
                         answer.get(i).get(j).closeCard();
                     }
@@ -152,32 +150,32 @@ public class PrimaryController {
 
     }
 
-    public void revealCard(){
-        for (int i = 0; i < answer.size(); i++){
+    public void revealCard() {
+        for (int i = 0; i < answer.size(); i++) {
             for (int j = 0; j < answer.get(i).size(); j++) {
                 answer.get(i).get(j).revealCard();
             }
         }
     }
 
-    public void closeAllCard(){
+    public void closeAllCard() {
         System.out.println("Close All Card");
-        for (int i = 0; i < answer.size(); i++){
+        for (int i = 0; i < answer.size(); i++) {
             for (int j = 0; j < answer.get(i).size(); j++) {
                 answer.get(i).get(j).forceCloseCard();
             }
         }
     }
 
-    public void openAllCard(){
-        for (int i = 0; i < answer.size(); i++){
+    public void openAllCard() {
+        for (int i = 0; i < answer.size(); i++) {
             for (int j = 0; j < answer.get(i).size(); j++) {
                 answer.get(i).get(j).forceOpenCard(i, j);
             }
         }
     }
 
-    List<List<Answer>> answer = new ArrayList<List<Answer>>();  
+    List<List<Answer>> answer = new ArrayList<List<Answer>>();
     int col = 4;
     int row = 3;
     // int opennedCard = 0;
@@ -186,7 +184,7 @@ public class PrimaryController {
     // 0: Safe to open, 1: Process are using this state
     int cardState = 0;
 
-    private void populateAnswer(){
+    private void populateAnswer() {
         int col = this.col;
         int row = this.row;
         answer.removeAll(answer);
@@ -204,7 +202,7 @@ public class PrimaryController {
 
         for (int i = 0; i < col; i++) {
             List<Answer> columnOfAnswer = new ArrayList<Answer>();
-            for (int j = i*(col-1); j < (i*(col-1)) + row; j++) {
+            for (int j = i * (col - 1); j < (i * (col - 1)) + row; j++) {
                 // System.out.println(j);
                 columnOfAnswer.add(listOfAnswer.get(j));
             }
@@ -213,9 +211,9 @@ public class PrimaryController {
         }
 
         // for (int i = 0; i < listOfAnswer.size(); i++)
-        //     listOfAnswer.get(i).printData();
+        // listOfAnswer.get(i).printData();
         // Printing and display the elements in ArrayList
-        // System.out.print( + " ");    
+        // System.out.print( + " ");
     }
 
     @FXML
@@ -248,23 +246,23 @@ public class PrimaryController {
         // System.out.println("Row : " + rowIndex + ", Col : " + columnIndex);
     }
 
-    public void setScore(){
-        lifeLabel.setText("Attempt: "+ this.life);
-        scoreLabel.setText("Correct Guess: "+ this.score);
+    public void setScore() {
+        lifeLabel.setText("Attempt: " + this.life);
+        scoreLabel.setText("Correct Guess: " + this.score);
     }
 
-    public void incrementScore(){
+    public void incrementScore() {
         this.score++;
         setScore();
-        if (this.score >= row * col / 2){
+        if (this.score >= row * col / 2) {
             revealPrize();
         }
     }
-    
-    public void decrementLife(){
+
+    public void decrementLife() {
         this.life--;
         setScore();
-        if (this.life <= 0){
+        if (this.life <= 0) {
             System.out.println("0 life");
             openAllCard();
             revealPrize();
@@ -273,22 +271,22 @@ public class PrimaryController {
         }
     }
 
-    public void revealPrize(){
+    public void revealPrize() {
         System.out.println("Prize: ");
         Parent root;
         try {
-            // root = FXMLLoader.load(getClass().getClassLoader().getResource("path/to/other/view.fxml"));
+            // root =
+            // FXMLLoader.load(getClass().getClassLoader().getResource("path/to/other/view.fxml"));
             FXMLLoader fxmlLoader = App.getFXML("secondary");
             root = fxmlLoader.load();
             SecondaryController controller = fxmlLoader.<SecondaryController>getController();
             controller.setScore(score);
-            controller.viewPrize();
+            // controller.viewPrize();
             Stage stage = new Stage();
             stage.setTitle("Prize");
             stage.setScene(new Scene(root, 450, 450));
             stage.show();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         // closeAllCard();
@@ -298,22 +296,25 @@ public class PrimaryController {
         reset(null);
     }
 
-    public String paneStyle(String color){
-        return "-fx-background-color:"+color+";-fx-border-width:2px;-fx-spacing: 20;-fx-padding: 5px;-fx-border-insets: 10px 20px;-fx-background-insets: 10px 20px;-fx-border-color: gray";
+    public String paneStyle(String color) {
+        return "-fx-background-color:" + color
+                + ";-fx-border-width:2px;-fx-spacing: 20;-fx-padding: 5px;-fx-border-insets: 10px 20px;-fx-background-insets: 10px 20px;-fx-border-color: gray";
     }
 
     private void addPane(int colIndex, int rowIndex) {
         Pane pane = new Pane();
-        // String[] colors = {"grey", "yellow", "blue", "pink", "brown", "white", "silver", "orange", "lightblue", "grey"};
-        pane.setPrefSize(150,400);
+        // String[] colors = {"grey", "yellow", "blue", "pink", "brown", "white",
+        // "silver", "orange", "lightblue", "grey"};
+        pane.setPrefSize(150, 400);
         pane.setStyle(paneStyle("lightblue"));
-        // pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        // pane.setBorder(new Border(new BorderStroke(Color.BLACK,
+        // BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         // pane.setStyle("");
-        
+
         pane.setOnMouseClicked(e -> {
-            if (answer.get(colIndex).get(rowIndex).allowOpen()){
+            if (answer.get(colIndex).get(rowIndex).allowOpen()) {
                 answer.get(colIndex).get(rowIndex).openCard(colIndex, rowIndex);
-                if (this.lastKey == -1){
+                if (this.lastKey == -1) {
                     this.lastKey = answer.get(colIndex).get(rowIndex).key;
                 } else {
                     if (answer.get(colIndex).get(rowIndex).key == this.lastKey) {
@@ -329,10 +330,11 @@ public class PrimaryController {
         });
         answer.get(colIndex).get(rowIndex).pane = pane;
         cardGrid.add(pane, colIndex, rowIndex);
-        // pane.setStyle("-fx-background-color:black;-fx-border-width:2px;-fx-padding: 15;-fx-spacing: 10;-fx-padding: 5px;-fx-border-insets: 5px;-fx-background-insets: 5px;");
+        // pane.setStyle("-fx-background-color:black;-fx-border-width:2px;-fx-padding:
+        // 15;-fx-spacing: 10;-fx-padding: 5px;-fx-border-insets:
+        // 5px;-fx-background-insets: 5px;");
 
     }
-
 
     // @FXML
     // public void buttonPressed(ActionEvent event) {
@@ -361,13 +363,13 @@ public class PrimaryController {
     }
 
     @FXML
-    public void reset(ActionEvent event){
+    public void reset(ActionEvent event) {
         cardGrid.getChildren().clear();
         cardGrid.getColumnConstraints().clear();
         cardGrid.getRowConstraints().clear();
-        int numCols = 4 ;
-        int numRows = 3 ;
-        this.life = 3;
+        int numCols = 4;
+        int numRows = 3;
+        this.life = 5;
         this.score = 0;
         setScore();
         populateAnswer();
@@ -375,7 +377,7 @@ public class PrimaryController {
         // answer.get(0).get(1).printData();
         // answer.get(2).get(2).printData();
         // answer.get(0).get(0).printData();
-        for (int i = 0 ; i < numCols ; i++) {
+        for (int i = 0; i < numCols; i++) {
             ColumnConstraints colConstraints = new ColumnConstraints();
             colConstraints.setHgrow(Priority.SOMETIMES);
             colConstraints.setMinWidth(60.0);
@@ -383,7 +385,7 @@ public class PrimaryController {
             cardGrid.getColumnConstraints().add(colConstraints);
         }
 
-        for (int i = 0 ; i < numRows ; i++) {
+        for (int i = 0; i < numRows; i++) {
             RowConstraints rowConstraints = new RowConstraints();
             rowConstraints.setVgrow(Priority.SOMETIMES);
             // rowConstraints.setPrefHeight(300.0);
@@ -393,7 +395,7 @@ public class PrimaryController {
 
         // cardGrid.setGridLinesVisible(true);
 
-        for (int i = 0 ; i < numCols ; i++) {
+        for (int i = 0; i < numCols; i++) {
             for (int j = 0; j < numRows; j++) {
                 addPane(i, j);
             }
