@@ -81,20 +81,20 @@ public class PrimaryController {
 
         public void openCard(int colIndex, int rowIndex) {
             this.status = 1;
-            String color = answer.get(colIndex).get(rowIndex).getColor();
-            pane.setStyle(paneStyle(color));
+            int keyColor = answer.get(colIndex).get(rowIndex).key + 1;
+            pane.setStyle(paneStyle(String.valueOf(keyColor)));
         }
 
         public void forceOpenCard(int colIndex, int rowIndex) {
             this.status = 2;
-            String color = answer.get(colIndex).get(rowIndex).getColor();
-            System.out.println(color);
-            pane.setStyle(paneStyle(color));
+            int keyColor = answer.get(colIndex).get(rowIndex).key + 1;
+            pane.setStyle(paneStyle(String.valueOf(keyColor)));
+            // pane.setStyle(paneStyle(color));
         }
 
         public void forceCloseCard() {
             this.status = 0;
-            pane.setStyle(paneStyle("lightblue"));
+            pane.setStyle(paneStyle("0"));
         }
 
         public boolean isPopulated() {
@@ -113,7 +113,7 @@ public class PrimaryController {
 
             if (this.status == 1) {
                 this.status = 0;
-                pane.setStyle(paneStyle("lightblue"));
+                pane.setStyle(paneStyle("0"));
                 // System.out.println("wrong");
                 return true;
             }
@@ -284,7 +284,7 @@ public class PrimaryController {
             // controller.viewPrize();
             Stage stage = new Stage();
             stage.setTitle("Prize");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root, 450, 700));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -296,9 +296,17 @@ public class PrimaryController {
         reset(null);
     }
 
-    public String paneStyle(String color) {
-        return "-fx-background-color:" + color
-                + ";-fx-border-width:2px;-fx-spacing: 20;-fx-padding: 5px;-fx-border-insets: 10px 20px;-fx-background-insets: 10px 20px;-fx-border-color: gray";
+    public String paneStyle(String cardNumber) {
+        return "-fx-border-width:2px;-fx-spacing: 20;-fx-padding: 5px;-fx-border-insets: 10px 20px;-fx-background-insets: 10px 20px;-fx-border-color: gray;"
+                + "-fx-background-image: url(\"card" + cardNumber
+                + ".jpg\");-fx-background-repeat: stretch;-fx-background-size: 150 205;-fx-background-position: center center;";
+
+        // return "-fx-background-color:" + color
+        // + ";-fx-border-width:2px;-fx-spacing: 20;-fx-padding: 5px;-fx-border-insets:
+        // 10px 20px;-fx-background-insets: 10px 20px;-fx-border-color: gray;"
+        // + "-fx-background-image:
+        // url(\"\\images\\card\\1.jpg\");-fx-background-repeat:
+        // stretch;-fx-background-size: 900 506; ";
     }
 
     private void addPane(int colIndex, int rowIndex) {
@@ -306,7 +314,7 @@ public class PrimaryController {
         // String[] colors = {"grey", "yellow", "blue", "pink", "brown", "white",
         // "silver", "orange", "lightblue", "grey"};
         pane.setPrefSize(150, 400);
-        pane.setStyle(paneStyle("lightblue"));
+        pane.setStyle(paneStyle("0"));
         // pane.setBorder(new Border(new BorderStroke(Color.BLACK,
         // BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         // pane.setStyle("");

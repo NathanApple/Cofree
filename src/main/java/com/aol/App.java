@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        // Image img = new Image(App.class.getResource("images/card/1.jpg"));
+        // System.out.println(img);
+
         scene = new Scene(loadFXML("primary"), 800, 800);
         stage.setTitle("Coffee Memory Game");
 

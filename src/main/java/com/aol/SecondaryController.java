@@ -1,5 +1,6 @@
 package com.aol;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -7,24 +8,34 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class SecondaryController {
 
-    @FXML
-    private Label prizeLabel;
+    // @FXML
+    // private Label prizeLabel;
 
     @FXML
     private Button prizeButton;
 
+    @FXML
+    private ImageView prizeImage;
+
     public void initialize() {
         prizeButton.setVisible(true);
         // prizeLabel.setVisible(false);
-        prizeLabel.setText("???");
+        // prizeLabel.setText("???");
+
+        Image image = new Image("couponunknown.png");
+        prizeImage.setImage(image);
 
         prizeButton.setOnMouseClicked(event -> {
             prizeButton.setVisible(false);
             viewPrize();
         });
+
+        // viewPrize();
     }
 
     private int score = -1;
@@ -34,19 +45,17 @@ public class SecondaryController {
     }
 
     public void viewPrize() {
-        // String[] prize = {"", "yellow", "blue", "pink", "brown", "white", "silver",
-        // "orange"};
         Random random = new Random();
-        int discount = (random.nextInt(4) + this.score * 2) * 5;
-        if (discount > 0) {
-            if (discount < 25) {
-                prizeLabel.setText("Kupon Diskon " + String.valueOf(discount) + "%\nMaks: Rp 10.000");
-            } else {
-                prizeLabel.setText("Kupon Diskon " + String.valueOf(discount) + "%\nMaks: Rp 25.000");
-            }
-        } else {
-            prizeLabel.setText("Maaf Anda Kurang Beruntung\nSilahkan Coba Lagi Nanti");
+        int coupon = (random.nextInt(3) + this.score) - 1;
+
+        if (coupon <= 0) {
+            coupon = 0;
+        } else if (coupon >= 5) {
+            coupon = 5;
         }
-        prizeLabel.setVisible(true);
+        Image image = new Image("coupon" + coupon + ".png");
+
+        prizeImage.setImage(image);
+
     }
 }
