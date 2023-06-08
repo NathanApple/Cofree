@@ -284,7 +284,7 @@ public class PrimaryController {
             // controller.viewPrize();
             Stage stage = new Stage();
             stage.setTitle("Prize");
-            stage.setScene(new Scene(root, 450, 700));
+            stage.setScene(new Scene(root, 650, 700));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -294,7 +294,7 @@ public class PrimaryController {
 
     public void initialize() {
         reset(null);
-        revealPrize();
+        // revealPrize();
     }
 
     public String paneStyle(String cardNumber) {

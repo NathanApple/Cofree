@@ -1,8 +1,10 @@
 package com.aol;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
+import java.util.UUID;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -11,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class SecondaryController {
 
@@ -24,7 +27,7 @@ public class SecondaryController {
     private ImageView prizeImage;
 
     @FXML
-    private TextField textfieldCode;
+    private Text textCode;
 
     public void initialize() {
         prizeButton.setVisible(true);
@@ -33,6 +36,7 @@ public class SecondaryController {
 
         Image image = new Image("couponunknown.png");
         prizeImage.setImage(image);
+        textCode.setText("-------------------------------");
 
         prizeButton.setOnMouseClicked(event -> {
             prizeButton.setVisible(false);
@@ -58,6 +62,28 @@ public class SecondaryController {
             coupon = 5;
         }
         Image image = new Image("coupon" + coupon + ".png");
+
+        if (coupon > 0) {
+            UUID uuid = UUID.randomUUID();
+            String[] code = { uuid.toString().toUpperCase(), String.valueOf(coupon) };
+            File csvFile = new File("winner.csv");
+            try (FileWriter fileWriter = new FileWriter(csvFile, true)) {
+                StringBuilder line = new StringBuilder();
+                for (int i = 0; i < code.length; i++) {
+                    line.append(code[i]);
+                    if (i != code.length - 1) {
+                        line.append(',');
+                    }
+                }
+                line.append("\n");
+                fileWriter.write(line.toString());
+                fileWriter.close();
+
+                textCode.setText(uuid.toString().toUpperCase());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         prizeImage.setImage(image);
 
