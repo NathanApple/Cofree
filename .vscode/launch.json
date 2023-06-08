@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "com.aol/com.aol.Test",
+            "projectName": "aol"
+        },
+        {
+            "type": "java",
             "name": "GridPaneIndexingDemo",
             "request": "launch",
             "mainClass": "com.aol/com.aol.GridPaneIndexingDemo",

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -21,6 +22,9 @@ public class SecondaryController {
 
     @FXML
     private ImageView prizeImage;
+
+    @FXML
+    private TextField textfieldCode;
 
     public void initialize() {
         prizeButton.setVisible(true);

@@ -294,6 +294,7 @@ public class PrimaryController {
 
     public void initialize() {
         reset(null);
+        revealPrize();
     }
 
     public String paneStyle(String cardNumber) {
