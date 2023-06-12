@@ -275,6 +275,7 @@ public class PrimaryController {
         System.out.println("Prize: ");
         Parent root;
         try {
+            
             // root =
             // FXMLLoader.load(getClass().getClassLoader().getResource("path/to/other/view.fxml"));
             FXMLLoader fxmlLoader = App.getFXML("secondary");
@@ -284,6 +285,8 @@ public class PrimaryController {
             // controller.viewPrize();
             Stage stage = new Stage();
             stage.setTitle("Prize");
+            stage.getIcons().add(new Image("file:icon.jpg"));
+
             stage.setScene(new Scene(root, 650, 700));
             stage.show();
         } catch (IOException e) {
