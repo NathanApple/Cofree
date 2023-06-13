@@ -285,7 +285,7 @@ public class PrimaryController {
             // controller.viewPrize();
             Stage stage = new Stage();
             stage.setTitle("Prize");
-            stage.getIcons().add(new Image("file:icon.jpg"));
+            stage.getIcons().add(new Image("file:icon.png"));
 
             stage.setScene(new Scene(root, 650, 700));
             stage.show();

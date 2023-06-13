@@ -24,9 +24,9 @@ public class App extends Application {
         // System.out.println(img);
 
         scene = new Scene(loadFXML("primary"), 800, 800);
-        
+
         stage.setTitle("Cofree Game");
-        stage.getIcons().add(new Image("file:icon.jpg"));
+        stage.getIcons().add(new Image("file:icon.png"));
 
         stage.setScene(scene);
         stage.show();
@@ -37,9 +37,9 @@ public class App extends Application {
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
-        
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        
+
         return fxmlLoader.load();
     }
 

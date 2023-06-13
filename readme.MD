@@ -6,11 +6,13 @@
 
 * JDK 19.0.2
 * Apache Maven 3.9.2
+* org.openjfx - javafx-controls - 13
+* org.openjfx - javafx-fxml - 13
 * Visual Studio Code and its java extension
 
 #### Step 1
 
-Open visual studio code on the build path, choose Run and Debug tab and choose Start Debugging. 
+Open visual studio code on the build path, choose Run and Debug tab and choose Start Debugging.
 
 ![1686565111036](image/readme/1686565111036.png)
 
