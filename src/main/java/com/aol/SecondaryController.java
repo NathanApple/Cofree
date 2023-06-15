@@ -27,7 +27,10 @@ public class SecondaryController {
     private ImageView prizeImage;
 
     @FXML
-    private Text textCode;
+    private ImageView codeImage;
+
+    // @FXML
+    // private Text textCode;
 
     public void initialize() {
         prizeButton.setVisible(true);
@@ -36,7 +39,7 @@ public class SecondaryController {
 
         Image image = new Image("couponunknown.png");
         prizeImage.setImage(image);
-        textCode.setText("-------------------------------");
+        // textCode.setText("-------------------------------");
 
         prizeButton.setOnMouseClicked(event -> {
             prizeButton.setVisible(false);
@@ -56,6 +59,8 @@ public class SecondaryController {
         Random random = new Random();
         int coupon = (random.nextInt(3) + this.score) - 1;
 
+        // Coupon By pass
+        coupon += 3;
         if (coupon <= 0) {
             coupon = 0;
         } else if (coupon >= 5) {
@@ -79,7 +84,12 @@ public class SecondaryController {
                 fileWriter.write(line.toString());
                 fileWriter.close();
 
-                textCode.setText(uuid.toString().toUpperCase());
+                Image qrImage = new Image(
+                        "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
+                                + uuid.toString().toUpperCase());
+                codeImage.setImage(qrImage);
+
+                // textCode.setText(uuid.toString().toUpperCase());
             } catch (IOException e) {
                 e.printStackTrace();
             }

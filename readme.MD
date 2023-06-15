@@ -22,11 +22,13 @@ Phase 1 of the application is user playing the game normally. To play the game s
 
 ![1686565252775](image/readme/1686565252775.png)
 
+![1686817652169](image/readme/1686817652169.png)
+
 #### Step 3
 
 After all attempt is lose, then user will given a popup where the user could click "Reveal Prize" button to view its prize. After click the button, a coupon will be shown to the user depending on the performance in that round. In addition there is a coupon code that will be shown to user that will be saved in "winner.csv" in the project folder.
 
-![1686565398720](image/readme/1686565398720.png)
+![1686817652169](image/readme/1686817652169.png)
 
 #### Step 4 (Reset)
 

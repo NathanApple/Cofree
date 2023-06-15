@@ -275,7 +275,7 @@ public class PrimaryController {
         System.out.println("Prize: ");
         Parent root;
         try {
-            
+
             // root =
             // FXMLLoader.load(getClass().getClassLoader().getResource("path/to/other/view.fxml"));
             FXMLLoader fxmlLoader = App.getFXML("secondary");
@@ -287,7 +287,7 @@ public class PrimaryController {
             stage.setTitle("Prize");
             stage.getIcons().add(new Image("file:icon.png"));
 
-            stage.setScene(new Scene(root, 650, 700));
+            stage.setScene(new Scene(root, 650, 750));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -297,7 +297,7 @@ public class PrimaryController {
 
     public void initialize() {
         reset(null);
-        // revealPrize();
+        revealPrize();
     }
 
     public String paneStyle(String cardNumber) {

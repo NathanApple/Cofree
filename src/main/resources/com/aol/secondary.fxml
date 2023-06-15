@@ -8,42 +8,46 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aol.SecondaryController">
+<VBox alignment="CENTER" prefHeight="762.0" prefWidth="530.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aol.SecondaryController">
     <children>
-        <Label prefHeight="32.0" prefWidth="74.0" text="Prize: ">
-         <font>
-            <Font name="Javanese Text" size="26.0" />
-         </font>
-      </Label>
-      <Button fx:id="prizeButton" mnemonicParsing="false" text="Reveal Prize">
-         <font>
-            <Font name="Segoe UI Semibold" size="12.0" />
-         </font></Button>
-      <VBox alignment="CENTER" prefHeight="253.0" prefWidth="331.0" style="-fx-border-color: black;">
+      <HBox alignment="CENTER" prefHeight="274.0" prefWidth="552.0" spacing="10.0">
          <children>
-            <ImageView fx:id="prizeImage" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+            <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="250.0">
+               <children>
+                    <Label prefHeight="98.0" prefWidth="98.0" text="Prize: ">
+                     <font>
+                        <Font name="Javanese Text" size="35.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="prizeButton" mnemonicParsing="false" text="Reveal Prize">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="74.0" prefWidth="219.0" text="Redeem Code">
+                     <font>
+                        <Font name="Javanese Text" size="26.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="codeImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" style="-fx-border-color: black;">
+         <children>
+            <ImageView fx:id="prizeImage" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../couponunknown.png" />
                </image>
             </ImageView>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="356.0" spacing="40.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Redeem Code">
-               <font>
-                  <Font name="Segoe UI Semibold" size="12.0" />
-               </font>
-            </Text>
-            <Text fx:id="textCode" strokeType="OUTSIDE" strokeWidth="0.0" text="ABCDEGHJIJLMNOPSTU">
-               <font>
-                  <Font name="Courier New" size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
