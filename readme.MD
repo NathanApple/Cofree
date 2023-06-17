@@ -10,6 +10,10 @@
 * org.openjfx - javafx-fxml - 13
 * Visual Studio Code and its java extension
 
+#### Step 0
+
+Open the project directory and run `mvn clean install`
+
 #### Step 1
 
 Open visual studio code on the build path, choose Run and Debug tab and choose Start Debugging.

@@ -23,6 +23,7 @@ public class App extends Application {
         // Image img = new Image(App.class.getResource("images/card/1.jpg"));
         // System.out.println(img);
 
+        // scene = new Scene(loadFXML("scanner"), 800, 800);
         scene = new Scene(loadFXML("primary"), 800, 800);
 
         stage.setTitle("Cofree Game");

@@ -297,7 +297,7 @@ public class PrimaryController {
 
     public void initialize() {
         reset(null);
-        revealPrize();
+        // revealPrize();
     }
 
     public String paneStyle(String cardNumber) {
@@ -375,13 +375,33 @@ public class PrimaryController {
     }
 
     @FXML
+    public void scan(ActionEvent event) {
+        Parent root;
+        try {
+            FXMLLoader fxmlLoader = App.getFXML("scanner");
+            root = fxmlLoader.load();
+            ScannerController controller = fxmlLoader.<ScannerController>getController();
+            // controller.setScore(score);
+            // controller.viewPrize();
+            Stage stage = new Stage();
+            stage.setTitle("Scanning Qr Code");
+            stage.getIcons().add(new Image("file:icon.png"));
+
+            stage.setScene(new Scene(root, 500, 500));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void reset(ActionEvent event) {
         cardGrid.getChildren().clear();
         cardGrid.getColumnConstraints().clear();
         cardGrid.getRowConstraints().clear();
         int numCols = 4;
         int numRows = 3;
-        this.life = 5;
+        this.life = 4;
         this.score = 0;
         setScore();
         populateAnswer();

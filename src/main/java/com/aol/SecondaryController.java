@@ -60,7 +60,7 @@ public class SecondaryController {
         int coupon = (random.nextInt(3) + this.score) - 1;
 
         // Coupon By pass
-        coupon += 3;
+        // coupon += 3;
         if (coupon <= 0) {
             coupon = 0;
         } else if (coupon >= 5) {
