@@ -11,7 +11,7 @@
 
 #### Step 0
 
-Make sure everything in requirement is installed and connected to the system path. In addtion, make sure openCV is in the java library.
+Make sure everything in requirement is installed and connected to the system path. In addition, make sure openCV is in the java library.
 
 #### Step 1
 
